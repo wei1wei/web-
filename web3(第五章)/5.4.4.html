@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>5.4.4</title>
+</head>
+<script type="text/javascript">
+function draw(id)
+{
+	var canvas=document.getElementById("myCanvas");
+	var context=canvas.getContext("2d");
+	var image=new Image();
+	image.src="fighting.jpg";
+	image.onload=function()
+	{
+		context.drawImage(image,0,0);
+		var imagedata=context.getImageData(0,0,image.width,image.height);
+		//context.rotate(Math.PI);
+		for(var q=0,n=imagedata.data.length;q<n;q+=4)
+		{
+			iagedata.data[q+0]=255-imagedata.data[q+0];
+			iagedata.data[q+1]=255-imagedata.data[q+1];
+			iagedata.data[q+2]=255-imagedata.data[q+2];
+		}
+		//context.stroke();
+		//context.clip();
+		context.putImageData(imagedata,0,0);
+	}
+}
+</script>
+<fieldset>
+<legend>图像像素处理</legend>
+<canvas id="myCanvas"width="850px"height="850px">
+</canvas>
+<br>
+<button onclick="draw('canvas')">像素处理</button>
+</fieldset>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>5.3.1</title>
+</head>
+<script>
+function draw()
+{
+	var canvas=document.getElementById("myCanvas");
+	var context=canvas.getContext("2d");
+	context.fillStyle="yellow";
+	context.strokeStyle="red";
+	context.fillRect(60,60,130,110);
+	context.strokeRect(50,50,150,130);
+	context.clearRect(70,70,110,90);
+}
+</script>
+<fieldset>
+<legend>绘制带样式的矩形</legend>
+<canvas id="myCanvas"width="200px"height="200px">
+</canvas>
+<br>
+<button onclick="draw()">绘图</button>
+</fieldset>
+</html>

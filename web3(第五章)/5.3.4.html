@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+<script>
+var i=0;
+function draw()
+{
+	var type;
+	switch(i)
+	{
+		case 0:
+		  type="source-over";
+		  break;
+		case 1:
+		  type="copy";
+		  break;
+		case 2:
+		  type="darker";
+		  break;
+		case 3:
+		  type="ligher";
+		  break;
+		case 4:
+		  type="xor";
+		  break;
+	}
+	var canvas=document.getElementById("myCanvas");
+	var context=canvas.getContext("2d");
+	context.globalCompositeOperation=type;
+	context.fillStyle="red";
+	context.fillRect(100,100,100,100);
+	context.fillStyle="blue";
+	context.arc(100,100,60,0,Math.PI*2,false);
+	context.fill();
+	i++;
+}
+</script>
+<fieldset>
+<legend>使用globCompositeOperation设置图形组合</legend>
+<canvas id="myCanvas"width="300px"height="300px">
+</canvas>
+<br>
+<button onclick="draw()">绘图</button>
+</fieldset>
+</html>

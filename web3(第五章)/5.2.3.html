@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>5.2.3画弧</title>
+</head>
+<script>
+function drawArc()
+{
+	var canvas=document.getElementById("myCanvas");
+	var context=canvas.getContext("2d");
+	context.arc(100,100,80,0,(Math.PI/180)*90,false);
+	context.stroke();
+}
+</script>
+<fieldset>
+<legend>使用arc绘制弧形</legend>
+<canvas id="myCanvas"width="200px"height="200px">
+</canvas>
+<br>
+<button onclick="drawArc()">绘图</button>
+</fieldset>
+</html>

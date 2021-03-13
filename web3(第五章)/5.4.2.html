@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>5.4.2</title>
+</head>
+<script>
+function draw(i)
+{
+	var canvas=document.getElementById("myCanvas");
+	var context=canvas.getContext("2d");
+	var image=new Image();
+	image.src="fighting.jpg";
+	image.onload=function()
+	{
+		if(i==1)
+		   context.fillStyle=context.createPattern(image,"repeat-x");
+		else if(i==2)
+		   context.fillStyle=context.createPattern(image,"repeat-y");
+		else
+		   context.fillStyle=context.createPattern(image,"repeat");
+		context.fillRect(0,0,canvas.width,canvas.height);
+	}
+}
+</script>
+<fieldset>
+<legend>图像平铺</legend>
+<canvas id="myCanvas"width="2000px"height="800px">
+</canvas>
+<br>
+<button onclick="draw(1)">横向平铺</button>
+<button onclick="draw(2)">纵向平铺</button>
+<button onclick="draw(3)">全向平铺</button>
+</fieldset>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>5.2.2画线</title>
+</head>
+<script>
+function drawLine()
+{
+	var canvas=document.getElementById("myCanvas");
+	var context=canvas.getContext("2d");
+	context.moveTo(10,10);
+	context.lineTo(10,100);
+	context.lineTo(125,125);
+	context.lineTo(150,175);
+	context.stroke();
+}
+</script>
+<fieldset>
+<legend>使用moveTo、lineTo绘制直线</legend>
+<canvas id="myCanvas"width="200px"height="200px">
+</canvas>
+<br>
+<button onclick="drawLine()">绘图</button>
+</fieldset>
+</html>

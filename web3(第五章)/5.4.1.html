@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+<script>
+function draw(i)
+{
+	var canvas=document.getElementById("myCanvas");
+	var context=canvas.getContext("2d");
+	var image=new Image();
+	image.src="fighting.jpg";
+	image.onload=function()
+	{
+		if(i==1)
+		   context.drawImage(image,0,0);
+		   else if(i==2)
+		   context.drawImage(image,750,0,200,300);
+		   else
+		   context.drawImage(image,300,300,400,450,800,500,200,200);
+	}
+}
+</script>
+<fieldset>
+<legend>使用drawImage方法绘制图像</legend>
+<canvas id="myCanvas"width="1000px"height="800px">
+</canvas>
+<br>
+<button onclick="draw(1)">原图</button>
+<button onclick="draw(2)">缩放图</button>
+<button onclick="draw(3)">切割图</button>
+</fieldset>
+</html>

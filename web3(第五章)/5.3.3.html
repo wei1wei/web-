@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>5.3.3</title>
+</head>
+<script>
+function trans()
+{
+	var canvas=document.getElementById("myCanvas");
+	var context=canvas.getContext("2d");
+	context.fillRect(0,0,150,50);
+	context.translate(30,80);
+	context.fillRect(0,0,150,50);
+}
+function scale()
+{
+	var canvas=document.getElementById("myCanvas");
+	var context=canvas.getContext("2d");
+	context.fillRect(240,0,50,50);
+	context.scale(1.5,2.5);
+	context.fillRect(250,0,50,50);
+	context.scale(0.5,0.5);
+	context.fillRect(700,0,50,50);
+}
+</script>
+<fieldset>
+<legend>使用translate设置平移,使用scale设置放大缩小</legend>
+<canvas id="myCanvas"width="800px"height="200px">
+</canvas>
+<br>
+<button onclick="trans()">平移</button>
+<br>
+<button onclick="scale()">缩放</button>
+</fieldset>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>5.3.2</title>
+</head>
+<script>
+function draw()
+{
+	var canvas=document.getElementById("myCanvas");
+	var context=canvas.getContext("2d");
+	var mylinear=context.createLinearGradient(0,0,150,150);
+	mylinear.addColorStop(0,"red");
+	mylinear.addColorStop(0.8,"yellow");
+	mylinear.addColorStop(1,"green");
+	
+	context.fillStyle=mylinear;
+	context.fillRect(0,0,250,150);
+	
+	var linearText=context.createLinearGradient(300,50,600,50);
+	linearText.addColorStop(0,"yellow");
+	linearText.addColorStop(0.5,"grey");
+	linearText.addColorStop(0,"red");
+	context.fillStyle=linearText;
+	context.font="30px Aril";
+	context.textBaseline="top";
+	context.fillText("HTML5渐变性文字",300,50);
+}
+</script>
+<fieldset>
+<legend>线性渐变</legend>
+<canvas id="myCanvas"width="600px"height="200px">
+</canvas>
+<br>
+<button onclick="draw()">绘图</button>
+</fieldset>
+</html>
