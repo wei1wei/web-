@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>5.5.1</title>
+</head>
+<script>
+function draw()
+{
+	var canvas=document.getElementById("myCanvas");
+	var context=canvas.getContext("2d");
+	drawText(context,"bold 40px impact",20,50,"stroke");
+	drawText(context,"bold 40px sans ms",50,100,"fill");
+}
+function drawText(context,font,x,y,fillType)
+{
+	context.font=font;
+	context.textAlign="left";
+	context.textBaseline="top";
+	if(fillType=="fill")
+	{
+		context.fillText("HTML5绘制文字",x,y);
+	}
+	else
+	    context.strokeText("HTML5绘制文字",x,y);
+}
+</script>
+<fieldset>
+<legend>绘制文字</legend>
+<canvas id="myCanvas"width="400px"height="200px">
+</canvas>
+<br>
+<button onclick="draw()">绘图</button>
+</fieldset>
+</html>

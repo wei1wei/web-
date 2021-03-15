@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>5.5.2</title>
+</head>
+<script>
+var i=0
+function draw()
+{
+	i++;
+	var canvas=document.getElementById("myCanvas");
+	var context=canvas.getContext("2d");
+	context.clearRect(0,0,400,200);
+	if(i==1)
+	{
+		context.fillStyle="red";
+		context.fillRect(10,10,100,50);
+	}
+	else if(i==2)
+	{
+		context.fillStyle="yellow";
+		context.fillRect(30,40,100,50);
+	}
+	else
+	context.fillRect(50,70,100,50);
+}
+function save()
+{
+	var canvas=document.getElementById("myCanvas");
+	var context=canvas.getContext("2d");
+	context.save();
+}
+function restore()
+{
+	var canvas=document.getElementById("myCanvas");
+	var context=canvas.getContext("2d");
+	context.restore();
+}
+</script>
+<fieldset>
+<legend>绘制文字</legend>
+<canvas id="myCanvas"width="400px"height="200px">
+</canvas>
+<br>
+<button onclick="draw()">绘图</button>
+<button onclick="save()">保存</button>
+<button onclick="restore()">恢复</button>
+</fieldset>
+</html>
