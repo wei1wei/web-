@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>6.4</title>
+</head>
+<body>
+  <div id="target"style="border-style:solid;width:300px;height:300px;amrgin-top:20px">
+  <p>将你本地的文件拖拽到这里</p>
+  <div>
+  <table id="data" border="1">
+  </table>
+  <script>
+      var target=document.getElementById("target");
+	  target.ondragenter=handleDrag;
+	  target.ondragover=handleDrag;
+	  
+	  function handleDrag(e)
+	  {
+		  e.preventDefault();
+	  }
+	  target.ondrop=function(e)
+	  {
+		  var files=e.dataTransfer.files;
+		  var tableElem=document.getElementById("data");
+		  tableElem.innerHTML="<tr><th>文件名</th><th>文件类型</th><th>文件大小</th></tr>";
+		  for(var i=0;i<files.length;i++)
+		  {
+			  var row="<tr><td>"+files[i].name+"</td><td>"+files[i].type+"</td><td>"+files[i].size+"</td></tr>";
+			  tableElem.innerHTML+=row;
+		  }
+		  e.preventDefault();
+	  }
+  </script>
+</body>
+</html>
