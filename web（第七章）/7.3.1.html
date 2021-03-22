@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>7.3.1</title>
+</head>
+<script>
+function initDatabase()
+{
+	if(!window.openDatabase)
+	{
+		alert("浏览器不支持web sql数据库");
+	}else{
+		var dbName='myDB';
+		var dbVersion='1.0';
+		var dbDec='DEMO Database';
+		var dbSize=100000;
+		DB=openDatabase(dbName,dbVersion,dbDec,dbSize,showResult());
+	}
+}
+function showResult()
+{
+	var result=document.getElementById("result");
+	result.innerHTML='数据库创建成功';
+}
+</script>
+<fieldset>
+<legend>openDatabase的应用</legend>
+<span id="result"></span><br>
+<button onclick="initDatabase()">打开/创建</button>
+</fieldset>
+</html>

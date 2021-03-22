@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>7.2.3</title>
+</head>
+<script>
+function save()
+{
+	localStorage.setItem("name","Jerray");
+	localStorage.setItem("age","29");
+	localStorage.setItem("email","yuqi987@sohu.com");
+}
+function read()
+{
+	var result=document.getElementById("result");
+	for(var i=0;i<localStorage;i++)
+	{
+		var key=localStorage.key(i);
+		var value=localStorage.getItem(key);
+		result.innerHTML += "key : "+key+" , value : "+value+"<br>";
+	}
+}
+</script>
+<fieldset>
+<legend>localStorage的应用</legend>
+<span id="result()"></span><br>
+<button onclick="save()">保存</button>
+<button onclick="read()">读取</button>
+</fieldset>
+</html>

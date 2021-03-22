@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>7.2.1</title>
+</head>
+<script>
+function save()
+{
+    var name=document.getElementById("name").value;
+    sessionStorage.setItem("name",name);
+}
+function read()
+{
+	var result=document.getElementById("result");
+	result.innerHTML=sessionStorage.getItem("name");
+}
+</script>
+<fieldset>
+<legend>sessionStorage的应用</legend>
+<input type="text" id="name"value="" />
+<br>
+<span id="result"></span><br>
+<button onclick="save()">保存</button>
+<button onclick="read()">读取</button>
+</fieldset>
+</html>
