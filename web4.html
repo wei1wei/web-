@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>7.4</title>
+</head>
+<script>
+var DB;
+function initDatabase()
+{
+	if(!window.openDatabase)
+	     alert('浏览器不支持Web SQL数据库');
+    else
+	{
+		var dbName='mydb';
+		var dbVersion='1.0';
+		var dbDec='DEMO Database';
+		var dbSize=10000;
+		DB=openDatabase(dbName,dbVersion,dbDec,dbSize);
+	}
+}
+function createTable()
+{
+	DB.transaction(function(tx){
+		tx.executeSql('create table if not exists USERINFO(USERNAME,PASSWORD,EMAIL,HOBBY)');});
+}
+function reqister()
+{
+	initDatabase();
+	createTable();
+	var username=document.getElementById("username");
+	var password=document.getElementById("password");
+	var email=document.getElementById("email");
+	var hobby=document.getElementById("hobby");
+	DB.transaction(function(tx){
+		tx.excuteSql(
+		'select * from USERINFO where USERNAME=?',
+		[username],
+		function(tx,rs){
+			if(rs.rows.length>0)
+			{
+				alert("该用户已经存在，请使用其他用户名注册。");
+			}
+			else
+			{
+				DB.transaction(function(tx)
+				{
+					tx.excuteSql(
+					'insert into USERINFO(USERNAME,PASSWORD,EMAIL,HOBBY) value(?,?,?,?)',
+					[username,password,email,hobby],
+					function(tx,rs){
+						alert('注册成功');
+					},
+					function(tx,error){
+						alert('注册失败');
+					}
+			    );
+			});
+		  }
+	    }
+	  );
+   });
+}
+function login()
+{
+	initDatabase();
+	var username=document.getElementById("username");
+	var password=document.getElementById("password");
+	DB.transaction(function(tx){
+		tx.excuteSql(
+		'select * from USERINFO where USERNAME=? and PASSWORD=?',
+		[username,password],
+		function(tx,rs){
+			if(rs.rows.length==0)
+			   alert("登陆失败");
+			else{
+				var msg='';
+				for(var i=0;i<rs.rows.length;i++)
+				{
+					msg+='您好，'+rs.rows.item(i).USERNAME+'\n\n您的Email是：'+rs.rows.item(i).EMAIL+'\n\n您的兴趣爱好是：'+rs.rows.item(i).HOBBY;
+				}
+				alert(msg);
+			}
+		}
+	  );
+   });
+}
+</script>
+<body>
+<div>
+   <div style="float:left;border-style:outset;width:300px;height:300px">
+      <center>
+      <h2>注册新用户</h2>
+      <table>
+         <tr>
+            <td>用户名</td>
+            <td><input type="text" id="username" /></td>
+         </tr>
+         <tr>
+            <td>密码</td>
+            <td><input type="password" id="passsword" /></td>
+         </tr>
+         <tr>
+            <td>电子邮箱</td>
+            <td><input type="text" id="email" /></td>
+         </tr>
+         <tr>
+            <td>兴趣爱好</td>
+            <td><input type="text" id="hobby" /></td>
+         </tr>
+         <tr>
+            <td colspan="2" align="right">
+               <input type="button" value="注册新用户" onclick="register()" />
+            </td>
+         </tr>
+      </table>
+      </center>
+   </div>
+   <div style="float:left;border-style:outset;margin-left:30px;width:300px;heiht:300px">
+     <center>
+     <h2>用户登录</h2>
+     <table>
+         <tr>
+            <td>用户名</td>
+            <td><input type="text" id="login_username" /></td>
+         </tr>
+         <tr>
+            <td>密码</td>
+            <td><input type="password" id="login_passsword" /></td>
+         </tr>
+         <tr>
+            <td colspan="2" align="right">
+               <input type="button" value="用户登录" onclick="login()" />
+            </td>
+         </tr>
+       </table>
+       </center>
+    </div>
+</div>
+</body>
+</html>
