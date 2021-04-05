@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  padding: 10px;
+  /*background: LightGray;*/
+  background-image: url("/web/sence.jpg");
+}
+
+/* 页眉/Blog 标题 */
+.header {
+  padding: 30px;
+  text-align: center;
+  background: white;
+}
+
+.header h1 {
+  font-size: 50px;
+  text-shadow: 2px 2px red;
+}
+.header p{
+  font-style:italic;
+  color:rgb(48, 169, 255);
+  background:rgb(17, 156, 157);
+  border-style: outset;
+  border-color: black;
+}
+
+/* 设置上导航栏的样式 */
+.topnav {
+  overflow: hidden;
+  background-color: SlateBlue;
+}
+
+/* 设置 topnav 链接的样式 */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* 改变鼠标悬停时的颜色 */
+.topnav a:hover {
+  background-color: DodgerBlue;
+  color: black;
+}
+
+/* 创建两个不相等的彼此并排的浮动列 */
+/* 左列 */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+
+/* 右列 */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  background-color: #f1f1f1;
+  padding-left: 20px;
+}
+
+/* 伪图像 */
+.fakeimg {
+  background-color: white;
+  background-image: url("/web/d.jpg");
+  background-repeat: no-repeat;
+  width: 100%;
+  padding: 20px;
+}
+.fakeimg1 {
+  background-color: rgb(255, 174, 71);
+  background-image: url("/web/s1.bmp");
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.fakeimg2 {
+  background-color: rgb(255, 174, 71);
+  background-image: url("/web/s2.bmp");
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.fakeimg3 {
+  background-color: rgb(255, 174, 71);
+  background-image: url("/web/s3.bmp");
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.fakeimg4 {
+  background-color: rgb(255, 174, 71);
+  background-image: url("/web/s4.bmp");
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+/* 为文章添加卡片效果 */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* 清除列之后的浮动 */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* 页脚 */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(255, 99, 71, 0.6);
+  background-image: radial-gradient(red 30%, yellow 60%, green 10%);
+  margin-top: 20px;
+}
+
+/* 响应式布局 - 当屏幕的宽度小于 800 像素时，使两列堆叠而不是并排 */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* 响应式布局 - 当屏幕的宽度小于 400 像素时，使导航链接堆叠而不是并排 */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+#grad {
+    height: 150px;
+    width: 200px;
+    background-color: red; /* 浏览器不支持的时候显示 */
+    background-image: radial-gradient(red 5%, green 15%, blue 60%); /* 标准的语法（必须放在最后） */
+}
+</style>
+</head>
+
+<body>
+<div class="header">
+  <h1>薇薇萌'S 个人博客</h1>
+  <i class="material-icons"style="font-size:52px;color:red;">favorite</i>
+  <i class="material-icons"style="font-size:52px;color:red;">favorite</i>
+  <i class="material-icons"style="font-size:52px;color:red;">favorite</i>
+  <p>如果你自己没有光，不要怪别人没有眼光</p>
+  <i class="material-icons" style="font-size:48px;color:lightblue;">computer</i>
+</div>
+
+<div class="topnav">
+  <a href="https://github.com/wei1wei">薇薇'S github</a>
+  <a href="http://1802663293.qzone.qq.com">薇薇'S qq空间</a>
+  <a href="https://space.bilibili.com/364167982">薇薇'S B站空间</a>
+  <a href="https://baidu.com" style="float:right">百度一下</a>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>工作经历</h2>
+      <h4>孔家坡社区实习生、超市销售员</h4>
+      <div class="fakeimg" style="weight:300px;height:400px;">
+      </div>
+      <p>期间一些经历有：</p>
+      <p>帮助社区工作人员绘制人口分布图，及曾担任超市水果区销售员，了解一些销售技巧。</p>
+    </div>
+    <div class="card">
+      <h2>项目经历</h2>
+      <h5>2019.09-2019.12</h5>
+      <div id="grad" >
+      </div>
+      <p>学生信息管理系统</p>
+      <p>项目描述：</p>
+      <p>在老师的帮助下运用所学的数据库和Java语言编写并运行且检查项目的可行性，在该项目中主要负责理解代码结合数据库进行一系列的Java语言下的数据库操作。</p>
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>个人简介</h2>
+      <p>从专业技能还是综合素质上讲，我自认为是一名合格的大学生。
+        专业知识:基础可以，熟悉HTML并且能运用C语言及算法，
+        工作方面:集体荣誉感,团队合作精神较强，谦虚谨慎，吃苦耐劳,有良好的人际关系及协调组织和沟通能力
+        处事:头脑清醒，自信善良，乐观大方，乐于助人，做事稳重,有个人主见。
+      </p>
+    </div>
+    <div class="card">
+      <h3>心情汇总</h3>
+      <div class="fakeimg1">
+      <br>
+      <p>心情：微笑</p>
+      </div>
+      <div class="fakeimg2">
+      <br>
+      <p>心情：无语</p>
+      </div>
+      <div class="fakeimg1">
+      <br>
+      <p>心情：伤心</p>
+      </div>
+      <div class="fakeimg2">
+      <br>
+      <p>心情：开心</p>
+      </div>
+    </div>
+    <div class="card">
+      <h3>职业技能</h3>
+      <p>网页设计</p>
+      <p>3D游戏开发</p>
+      <p>C语言</p>
+      <p>Java</p>
+      <p>数据库</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <h2>世界那么大，我们一起闯</h2>
+</div>
+
+</body>
+</html>
